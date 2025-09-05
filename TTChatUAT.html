@@ -1,179 +1,68 @@
-<html>
-<head>
-    <style>
-      /* CSS for styling the page layout */
-      .page {
-        display: flex;
-        height: 100vh;
-      }
-
-      .left,
-      .right {
-        width: 15%;
-        background-color: #f9f9f9;
-      }
-
-      .middle {
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* CSS for styling the buttons */
-      .buttons {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      button {
-        background-color: #0077C8;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out;
-      }
-
-      button:hover {
-        background-color: #006cbd;
-      }
-
-      /* CSS for styling the form */
-      .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .form-control {
-        width: 70%;
-        padding: 10px;
-        margin-bottom: 10px;
-        font-size: 16px;
-        border-radius: 4px;
-        border: 1px solid #ddd;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-
-      /* Add more styling as needed */
-    </style>
-</head>
 <body>
-<div class="page"> This is landing page yo <div class="left">
-    <a id="liveagent_button_online_5731j0000004KNe" href="javascript://Chat" style="" onclick="document.querySelector('.uiButton').click()">Chat Now</a>
-</div>
-    <div class="middle">
-        <div class="buttons">
-            <button>
-                <a href="index.html">Page 1</a>
-            </button>
-            <button>
-                <a href="thirdpage.html" target="_blank">Page 2</a>
-            </button>
-        </div>
-        <br>
-        <div class="form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" class="form-control">
-            <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" class="form-control">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="form-control">
-        </div>
-    </div>
-    <div class="right"></div>
-    <script type='text/javascript'>
-        function initEmbeddedMessaging() {
-          try {
-            var name = 'Dincene';
-            var lastname = 'Pincene';
-            var email = 'test+dincene@example.org';
-            var subj = 'Issue with the Tripletex chat POC';
-            embeddedservice_bootstrap.settings.extraPrechatFormDetails = [{
-              "label": "First Name",
-              "name": "FirstName",
-              "value": name,
-              "displayToAgent": true
-            }, {
-              "label": "Last Name",
-              "value": lastname,
-              "displayToAgent": true
-            }, {
-              "label": "Email",
-              "value": email,
-              "displayToAgent": true
-            }, {
-              "label": "issue",
-              "value": subj,
-              "displayToAgent": true
-            }, {
-              "label": "Origin",
-              "value": 'Chat',
-              "displayToAgent": true
-            }];
-            embeddedservice_bootstrap.settings.extraPrechatInfo = [{
-              "entityName": "Contact",
-              "showOnCreate": true,
-              "linkToEntityName": "Case",
-              "linkToEntityField": "ContactId",
-              "saveToTranscript": "ContactId",
-              "entityFieldMaps": [{
-                "isExactMatch": true,
-                "fieldName": "FirstName",
-                "doCreate": true,
-                "doFind": true,
-                "label": "First Name"
-              }, {
-                "isExactMatch": true,
-                "fieldName": "LastName",
-                "doCreate": true,
-                "doFind": true,
-                "label": "Last Name"
-              }, {
-                "isExactMatch": true,
-                "fieldName": "Email",
-                "doCreate": true,
-                "doFind": true,
-                "label": "Email"
-              }]
-            }, {
-              "entityName": "Case",
-              "showOnCreate": true,
-              "saveToTranscript": "CaseId",
-              "entityFieldMaps": [{
-                "isExactMatch": false,
-                "fieldName": "Subject",
-                "doCreate": true,
-                "doFind": false,
-                "label": "issue"
-              }, {
-                "isExactMatch": false,
-                "fieldName": "Status",
-                "doCreate": true,
-                "doFind": false,
-                "label": "Status"
-              }, {
-                "isExactMatch": false,
-                "fieldName": "Origin",
-                "doCreate": true,
-                "doFind": false,
-                "label": "Origin"
-              }]
-            }];
+    <!-- < script type = 'text/javascript' >
+    function initEmbeddedMessaging() {
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+            console.log("Received the onEmbeddedMessagingReady event…");
+
+            // Send data to Salesforce
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                "CustomFirstName": "value one"
+            });
+
+            // Remove any items from the previous list
+            embeddedservice_bootstrap.prechatAPI.removeHiddenPrechatFields(["Hidden3"]);
+
+        });
+        try {
             embeddedservice_bootstrap.settings.language = 'no'; // For example, enter 'en' or 'en-US'
+            // Send data to Salesforce
             embeddedservice_bootstrap.init(
+                '00D1q0000008eQF',
+                'Einstein_Bot_with_Messaging',
+                'https://eaccounting--staging.sandbox.my.site.com/ESWEinsteinBotwithMess1668519415196', {
+                    scrt2URL: 'https://eaccounting--staging.sandbox.my.salesforce-scrt.com'
+                }
+            );
+        } catch (err) {
+            console.error('Error loading Embedded Messaging: ', err);
+        }
+    }; <
+/script> <
+script type = 'text/javascript'
+src = 'https://eaccounting--staging.sandbox.my.site.com/ESWEinsteinBotwithMess1668519415196/assets/js/bootstrap.min.js'
+onload = 'initEmbeddedMessaging()' > < /script> --> 
+ <button id="launchChatButton" onclick="launchChat()">
+        Chat
+ </button>
+	    
+<script type = 'text/javascript'>
+
+function initEmbeddedMessaging() {
+
+    try {
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+            console.log("Received the onEmbeddedMessagingReady event...");
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                "inFirstName": "firstname",
+                "inEmail": "test@example.org",
+                "inLastName": "WOOOO"
+            });
+        });
+
+        window.addEventListener("onEmbeddedMessagingConversationClosed", () => {
+            console.log("Received the onEmbeddedMessagingConversationClosed event…");
+            embeddedservice_bootstrap.utilAPI.hideChatButton();
+        });
+
+        window.addEventListener("onEmbeddedMessagingWindowMinimized", () => {
+            console.log("Received the onEmbeddedMessagingWindowMinimized event…");
+            embeddedservice_bootstrap.utilAPI.hideChatButton();
+        });
+
+        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true; // Update this line
+        embeddedservice_bootstrap.settings.language = 'en_US';
+        
+        embeddedservice_bootstrap.init(
 				'00DUB000005uIyf',
 				'Tripletex_Sales',
 				'https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374',
@@ -181,12 +70,20 @@
 					scrt2URL: 'https://tripletex--uat.sandbox.my.salesforce-scrt.com'
 				}
 			);
-          } catch (err) {
-            console.error('Error loading Embedded Messaging: ', err);
-          }
-        };
-      </script>
-    <script type='text/javascript' src='https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-</div>
+        
+    } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+    }
+}
+
+
+	        function launchChat() {
+        
+            initEmbeddedMessaging();
+            console.log("Loading Messaging now");
+            
+        }
+
+</script>
+	<script type='text/javascript' src='https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
-</html>
