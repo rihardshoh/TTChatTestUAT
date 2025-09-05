@@ -1,48 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Einstein Bot</title>
 </head>
-	<body>
-		<!--
-<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+<body>
+    <!-- Salesforce Embedded Messaging Script -->
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // Set your language preference
 
-			embeddedservice_bootstrap.init(
-				'00D3X0000046fW6',
-				'eA_Sales_GITHUUBTEST',
-				'https://tripletex.my.site.com/ESWeASalesGITHUUBTEST1705328895682',
-				{
-					scrt2URL: 'https://tripletex.my.salesforce-scrt.com' 
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://tripletex.my.site.com/ESWeASalesGITHUUBTEST1705328895682/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
--->
-<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+                embeddedservice_bootstrap.init(
+                    '00DUB000005uIyf', // Organization ID
+                    'Tripletex_Sales', // App Name
+                    'https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374', // Service URL
+                    {
+                        scrt2URL: 'https://tripletex--uat.sandbox.my.salesforce-scrt.com' // Salesforce SCRT URL
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
 
-			embeddedservice_bootstrap.init(
-				'00DUB000005uIyf',
-				'Tripletex_Sales',
-				'https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374',
-				{
-					scrt2URL: 'https://tripletex--uat.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-
-</body> 
+    <!-- Bootstrap for Embedded Messaging -->
+    <script type='text/javascript' src='https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
 </html>
