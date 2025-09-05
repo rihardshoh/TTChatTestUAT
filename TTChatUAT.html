@@ -16,6 +16,7 @@
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 		embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
@@ -35,21 +36,14 @@
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
-		embedded_svc.init(
-			'https://tripletex--uat.sandbox.my.salesforce.com',
-			'https://tripletex--uat.sandbox.my.site.com/',
-			gslbBaseURL,
-			'00DUB000005uIyf',
-			'Tripletex_Chat_Site_NO',
-			{
-				baseLiveAgentContentURL: 'https://c.la12s-core1.sfdc-cehfhs.salesforceliveagent.com/content',
-				deploymentId: '5723X000000LeIz',
-				buttonId: '5733X0000004a2O',
-				baseLiveAgentURL: 'https://d.la12s-core1.sfdc-cehfhs.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3X000000CojuUAC_174d0635619',
-				isOfflineSupportEnabled: true
-			}
-		);
+		embedded_svc..init(
+				'00DUB000005uIyf',
+				'Tripletex_Sales',
+				'https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374',
+				{
+					scrt2URL: 'https://tripletex--uat.sandbox.my.salesforce-scrt.com'
+				}
+			);
 	};
 
 	if (!window.embedded_svc) {
