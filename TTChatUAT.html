@@ -2,12 +2,33 @@
 <head>
 </head>
 	<body>
-		<script type='text/javascript'>
-		function bootstrapChat() { 
-			embedded_svc.settings.displayHelpButton = false;.
-			embedded_svc.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+		<!--
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			embedded_svc.init(
+			embeddedservice_bootstrap.init(
+				'00D3X0000046fW6',
+				'eA_Sales_GITHUUBTEST',
+				'https://tripletex.my.site.com/ESWeASalesGITHUUBTEST1705328895682',
+				{
+					scrt2URL: 'https://tripletex.my.salesforce-scrt.com' 
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://tripletex.my.site.com/ESWeASalesGITHUUBTEST1705328895682/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+-->
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
 				'00DUB000005uIyf',
 				'Tripletex_Sales',
 				'https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374',
@@ -15,12 +36,13 @@
 					scrt2URL: 'https://tripletex--uat.sandbox.my.salesforce-scrt.com'
 				}
 			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
 		}
-	</script>
-	<button onclick="bootstrapChat()">
-		Click me to show the Embedded Chat experience.
-	</button>
-	
-	
-	</body> 
+	};
+</script>
+<script type='text/javascript' src='https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+
+</body> 
 </html>
