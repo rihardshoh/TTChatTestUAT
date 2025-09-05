@@ -4,7 +4,16 @@
 	<body>
 		<script type='text/javascript'>
 		function bootstrapChat() {
-			embedded_svc.bootstrapEmbeddedService();
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DUB000005uIyf',
+				'Tripletex_Sales',
+				'https://tripletex--uat.sandbox.my.site.com/ESWTripletexSales1688560969374',
+				{
+					scrt2URL: 'https://tripletex--uat.sandbox.my.salesforce-scrt.com'
+				}
+			);
 		}
 	</script>
 	<button onclick="bootstrapChat()">
